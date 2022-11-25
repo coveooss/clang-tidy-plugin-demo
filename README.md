@@ -1,12 +1,12 @@
 # clang-tidy plugin demo
 
-This repository contains the slides for the [Large Scale Refactoring using Clang-Tidy](C++_Refactoring_Using_Clang_Tidy.pdf) presentation that was presented at [Montréal C++ Meetup](https://www.meetup.com/fr-FR/cppmtl/) on November 24th 2022.
+This repository contains the slides for the [Large Scale Refactoring using Clang-Tidy](presentation/C++_Refactoring_Using_Clang_Tidy_20221124.pdf) presentation that was presented at [Montréal C++ Meetup](https://www.meetup.com/fr-FR/cppmtl/) on November 24th 2022.
 
 The code for the custom Clang-Tidy check is in the [src/custom_check](src/custom_check) folder.
 
 The sample code used during the presentation is in the [src/sample_code_for_presentation](src/sample_code_for_presentation) folder.
 
-The slide deck is available [here](C++_Refactoring_Using_Clang_Tidy.pdf).
+The slide deck is available [here](presentation/C++_Refactoring_Using_Clang_Tidy_20221124.pdf).
 
 ## Quick Start
 
