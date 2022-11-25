@@ -1,0 +1,5 @@
+Checks:          '*,-fuchsia-*,-modernize-use-trailing-return-type,-llvmlibc-implementation-in-namespace'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle: none
