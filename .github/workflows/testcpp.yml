@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  testcpp:
+    name: Test C++
+    runs-on: ubuntu-22.04
+    container:
+      image: ubuntu:22.04
+    strategy:
+      matrix:
+        buildType: [
+          Debug,
+          RelWithDebInfo,
+        ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Prepare environment
+        env:
+            DEBIAN_FRONTEND: noninteractive
+        run: |
+          apt-get update
+          apt-get install --assume-yes --no-install-recommends make cmake clang-14 clang-tidy-14 libclang-14-dev llvm-14-dev
+      - name: Run Tests
+        run: |
+          cmake -DCMAKE_BUILD_TYPE=${{matrix.buildType}} -DCMAKE_C_COMPILER=/usr/bin/clang-14 -DCMAKE_CXX_COMPILER=/usr/bin/clang++-14 -B build -S .
+          cmake --build build
+          clang-tidy-14 --checks=* --load build/lib/libReviseLibV2Check.so --list-checks | grep revise
